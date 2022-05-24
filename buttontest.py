@@ -1,3 +1,4 @@
+
 import RPi.GPIO as GPIO
 from time import sleep
 import vlc
@@ -40,11 +41,11 @@ try:
     while True:
         GPIO.output(8, 1)
         if GPIO.input(11):
-            AR = vlc.MediaPlayer("Argentinië.mp3")
-            AR.play()            
+            MX = vlc.MediaPlayer("Canada.mp3")
+            MX.play()            
             for j in range(10):
-                for color in ColorsAR:
-                    for i in range(16):
+                for color in ColorsMX:
+                    for i in range(16,18):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)

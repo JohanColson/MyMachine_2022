@@ -5,7 +5,7 @@ import vlc
 import board
 import neopixel_spi as neopixel
 
-NUM_PIXELS = 198
+NUM_PIXELS = 167
 PIXEL_ORDER = neopixel.GRB
 ColorsAR = (0x0080FF, 0xFFFFFF)
 ColorsAU = (0x0000FF, 0xFFFFFF, 0xFF0000)
@@ -36,26 +36,30 @@ for i in range (17):
     GPIO.setup (inputlijst[i], GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 GPIO.setup (8, GPIO.OUT)
-
+for color in ColorsBE:
+    for i in range(16,28):
+        pixels[i] = color
+        pixels.show()
+    sleep(DELAY)
+    pixels.fill(0)
 try:
     while True:
         GPIO.output(8, 1)
         if GPIO.input(11):
             AR = vlc.MediaPlayer("Argentinië.mp3")
             AR.play()            
-            for j in range(10):
+            for j in range(9):
                 for color in ColorsAR:
-                    for i in range(6):
+                    for i in range(139,145):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
-                    pixels.fill(0)
         elif GPIO.input(12): 
             AU = vlc.MediaPlayer("Australië.mp3")   
             AU.play()
-            for j in range(10):
+            for j in range(8):
                 for color in ColorsAU:
-                    for i in range(6,23):
+                    for i in range(16):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -63,9 +67,9 @@ try:
         elif GPIO.input(13):
             BE = vlc.MediaPlayer("België.mp3")
             BE.play()
-            for j in range(10):
+            for j in range(7):
                 for color in ColorsBE:
-                    for i in range(23,36):
+                    for i in range(16,28):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -73,9 +77,9 @@ try:
         elif GPIO.input(14):
             BR = vlc.MediaPlayer("Brazilië.mp3")
             BR.play()
-            for j in range(5):
+            for j in range(6):
                 for color in ColorsBR:
-                    for i in range(36,53):
+                    for i in range(28,44):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -83,9 +87,9 @@ try:
         elif GPIO.input(15):
             CA = vlc.MediaPlayer("Canada.mp3")
             CA.play()            
-            for j in range(5):
+            for j in range(6):
                 for color in ColorsCA:
-                    for i in range(53,66):
+                    for i in range(44,56):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -93,9 +97,9 @@ try:
         elif GPIO.input(16): 
             CN = vlc.MediaPlayer("China.mp3")   
             CN.play()
-            for j in range(5):
+            for j in range(6):
                 for color in ColorsCN:
-                    for i in range(66,83):
+                    for i in range(56,72):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -103,18 +107,18 @@ try:
         elif GPIO.input(17):
             CO = vlc.MediaPlayer("Colombia.mp3")
             CO.play()
-            for j in range(5):
+            for j in range(7):
                 for color in ColorsCO:
-                    pixels[83] = color
+                    pixels[138] = color
                     pixels.show()
-                sleep(DELAY)
+                    sleep(DELAY)
                 pixels.fill(0)
         elif GPIO.input(18):
             CD = vlc.MediaPlayer("Congo.mp3")
             CD.play()
-            for j in range(5):
+            for j in range(6):
                 for color in ColorsCD:
-                    for i in range(84,97):
+                    for i in range(72,84):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -122,18 +126,18 @@ try:
         elif GPIO.input(19):
             EG = vlc.MediaPlayer("Egypte.mp3")
             EG.play()            
-            for j in range(5):
+            for j in range(6):
                 for color in ColorsEG:
-                    pixels[i] = color
+                    pixels[147] = color
                     pixels.show()
                 sleep(DELAY)
                 pixels.fill(0)
         elif GPIO.input(20): 
             IN= vlc.MediaPlayer("India.mp3")   
             IN.play()
-            for j in range(5):
+            for j in range(6):
                 for color in ColorsIN:
-                    for i in range(98,111):
+                    for i in range(84,96):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -141,9 +145,9 @@ try:
         elif GPIO.input(21):
             MX = vlc.MediaPlayer("Mexico.mp3")
             MX.play()
-            for j in range(5):
+            for j in range(6):
                 for color in ColorsMX:
-                    for i in range(111,114):
+                    for i in range(136,138):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -151,9 +155,9 @@ try:
         elif GPIO.input(22):
             NZ = vlc.MediaPlayer("Nieuw Zeeland.mp3")
             NZ.play()
-            for j in range(5):
+            for j in range(6):
                 for color in ColorsNZ:
-                    for i in range(114,127):
+                    for i in range(96,108):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -161,9 +165,9 @@ try:
         elif GPIO.input(23):
             RU = vlc.MediaPlayer("Rusland.mp3")
             RU.play()            
-            for j in range(5):
+            for j in range(7):
                 for color in ColorsRU:
-                    for i in range(127,162):
+                    for i in range(151,167):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -171,18 +175,18 @@ try:
         elif GPIO.input(24): 
             ES = vlc.MediaPlayer("Spanje.mp3")   
             ES.play()
-            for j in range(5):
+            for j in range(12):
                 for color in ColorsES:
-                    pixels[162] = color
+                    pixels[148] = color
                     pixels.show()
-                sleep(DELAY)
-                pixels.fill(0)
+                    sleep(DELAY)
+                    pixels.fill(0)
         elif GPIO.input(25):
             US = vlc.MediaPlayer("Verenigde Staten.mp3")
             US.play()
-            for j in range(5):
+            for j in range(6):
                 for color in ColorsUS:
-                    for i in range(163,192):
+                    for i in range(108,136):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -190,9 +194,9 @@ try:
         elif GPIO.input(26):
             ZA = vlc.MediaPlayer("Zuid-Afrika.mp3")
             ZA.play()
-            for j in range(5):
+            for j in range(6):
                 for color in ColorsZA:
-                    for i in range(192-195):
+                    for i in range(145,147):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
@@ -200,9 +204,9 @@ try:
         elif GPIO.input(27):
             SE = vlc.MediaPlayer("Zweden.mp3")
             SE.play()
-            for j in range(5):
+            for j in range(10):
                 for color in ColorsSE:
-                    for i in range(195-198):
+                    for i in range(149,151):
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)

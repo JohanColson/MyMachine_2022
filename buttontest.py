@@ -24,6 +24,7 @@ ColorsES = (0xFF0000, 0xFFFF00)
 ColorsUS = (0x0000FF, 0xFFFFFF, 0xFF0000)
 ColorsZA = (0xFFFF00, 0x00FF00, 0xFF0000, 0x0000FF)
 ColorsSE = (0x0000FF, 0xFFFF00)
+ColorsSPEC = (0xFF0000, 0x00FF00, 0x0000FF)
 ColorsOFF = 0x000000
 DELAY = 1
 #GPIO 10 voor de datapin
@@ -213,11 +214,12 @@ try:
                     sleep(DELAY)
                     pixels.fill(0)
         elif GPIO.input(5):
-            for i in range(NUM_PIXELS):
-                pixels[i] = 0x080080
-                pixels.show()
-                sleep(0.05)
-                pixels[i]= 0x000000         
+            for color in ColorsSPEC:
+                for i in range(NUM_PIXELS):
+                    pixels[i] = color
+                    pixels.show()
+                    sleep(0.15)
+                    pixels[i]= 0x000000         
         else:
             for i in range(NUM_PIXELS):
                 pixels[i] = ColorsOFF

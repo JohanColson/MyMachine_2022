@@ -4,7 +4,7 @@ from time import sleep
 import vlc
 import board
 import neopixel_spi as neopixel
-
+from random import randint
 NUM_PIXELS = 167
 PIXEL_ORDER = neopixel.GRB
 ColorsAR = (0x0080FF, 0xFFFFFF)
@@ -24,7 +24,7 @@ ColorsES = (0xFF0000, 0xFFFF00)
 ColorsUS = (0x0000FF, 0xFFFFFF, 0xFF0000)
 ColorsZA = (0xFFFF00, 0x00FF00, 0xFF0000, 0x0000FF)
 ColorsSE = (0x0000FF, 0xFFFF00)
-ColorsSPEC = (0xFF0000, 0x00FF00, 0x0000FF)
+ColorsSPEC = (0xFF0000, 0x00FF00, 0x0000FF, 0xFFFFFF)
 ColorsOFF = 0x000000
 DELAY = 1
 #GPIO 10 voor de datapin
@@ -214,12 +214,20 @@ try:
                     sleep(DELAY)
                     pixels.fill(0)
         elif GPIO.input(5):
-            for color in ColorsSPEC:
-                for i in range(NUM_PIXELS):
-                    pixels[i] = color
-                    pixels.show()
-                    sleep(0.15)
-                    pixels[i]= 0x000000         
+            i = randint(0,3)   
+            j = randint(0,160) 
+            pixels[j] = ColorsSPEC[i]
+            pixels[j+1] = ColorsSPEC[i]
+            pixels[j+2] = ColorsSPEC[i]
+            pixels[j+3] = ColorsSPEC[i]
+            pixels[j+4] = ColorsSPEC[i]
+            pixels.show()
+            sleep(0.3)
+            pixels[j] = ColorsOFF
+            pixels[j+1] = ColorsOFF
+            pixels[j+2] = ColorsOFF
+            pixels[j+3] = ColorsOFF
+            pixels[j+4] = ColorsOFF       
         else:
             for i in range(NUM_PIXELS):
                 pixels[i] = ColorsOFF

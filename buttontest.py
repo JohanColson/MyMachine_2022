@@ -56,6 +56,7 @@ try:
                         pixels[i] = color
                         pixels.show()
                     sleep(DELAY)
+            AR = 0
         elif GPIO.input(12): 
             AU = vlc.MediaPlayer("Australië.mp3")   
             AU.play()
@@ -66,6 +67,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            AU = 0
         elif GPIO.input(13):
             BE = vlc.MediaPlayer("België.mp3")
             BE.play()
@@ -76,6 +78,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            BE = 0
         elif GPIO.input(14):
             BR = vlc.MediaPlayer("Brazilië.mp3")
             BR.play()
@@ -86,6 +89,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            BR = 0
         elif GPIO.input(15):
             CA = vlc.MediaPlayer("Canada.mp3")
             CA.play()            
@@ -96,6 +100,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            CA = 0
         elif GPIO.input(16): 
             CN = vlc.MediaPlayer("China.mp3")   
             CN.play()
@@ -106,6 +111,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            CN = 0
         elif GPIO.input(17):
             CO = vlc.MediaPlayer("Colombia.mp3")
             CO.play()
@@ -115,6 +121,7 @@ try:
                     pixels.show()
                     sleep(DELAY)
                 pixels.fill(0)
+            CO = 0
         elif GPIO.input(18):
             CD = vlc.MediaPlayer("Congo.mp3")
             CD.play()
@@ -125,6 +132,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            CD = 0
         elif GPIO.input(19):
             EG = vlc.MediaPlayer("Egypte.mp3")
             EG.play()            
@@ -134,6 +142,7 @@ try:
                     pixels.show()
                     sleep(DELAY)
                 pixels.fill(0)
+            EG = 0
         elif GPIO.input(20): 
             IN= vlc.MediaPlayer("India.mp3")   
             IN.play()
@@ -144,6 +153,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            IN = 0
         elif GPIO.input(21):
             MX = vlc.MediaPlayer("Mexico.mp3")
             MX.play()
@@ -154,6 +164,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            MX = 0
         elif GPIO.input(22):
             NZ = vlc.MediaPlayer("Nieuw Zeeland.mp3")
             NZ.play()
@@ -164,6 +175,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            NZ = 0
         elif GPIO.input(23):
             RU = vlc.MediaPlayer("Rusland.mp3")
             RU.play()            
@@ -174,6 +186,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            RU = 0
         elif GPIO.input(24): 
             ES = vlc.MediaPlayer("Spanje.mp3")   
             ES.play()
@@ -183,6 +196,7 @@ try:
                     pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            ES = 0
         elif GPIO.input(25):
             US = vlc.MediaPlayer("Verenigde Staten.mp3")
             US.play()
@@ -193,6 +207,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            US = 0
         elif GPIO.input(26):
             ZA = vlc.MediaPlayer("Zuid-Afrika.mp3")
             ZA.play()
@@ -203,6 +218,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            ZA = 0
         elif GPIO.input(27):
             SE = vlc.MediaPlayer("Zweden.mp3")
             SE.play()
@@ -213,6 +229,7 @@ try:
                         pixels.show()
                     sleep(DELAY)
                     pixels.fill(0)
+            SE = 0
         elif GPIO.input(5):
             i = randint(0,3)   
             j = randint(0,160) 

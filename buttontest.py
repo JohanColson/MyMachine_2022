@@ -1,6 +1,6 @@
-
-import RPi.GPIO as GPIO
+from curses.ascii import DEL
 from time import sleep
+import RPi.GPIO as GPIO
 import vlc
 import board
 import neopixel_spi as neopixel
@@ -9,13 +9,13 @@ NUM_PIXELS = 167
 PIXEL_ORDER = neopixel.GRB
 ColorsAR = (0x0080FF, 0xFFFFFF)
 ColorsAU = (0x0000FF, 0xFFFFFF, 0xFF0000)
-ColorsBE = (0xFFFFFF, 0xFFFF00, 0xFF0000)
+ColorsBE = (0x5E2612, 0xFFFF00, 0xFF0000)
 ColorsBR = (0x0000CC, 0xFFFF00, 0x00CC00)
 ColorsCA = (0xFF0000, 0xFFFFFF)
 ColorsCN = (0xFF0000, 0xFFFF00)
 ColorsCO = (0xFFFF00, 0x0000CC, 0xFF0000)
 ColorsCD = (0x0066CC, 0xFFFF00, 0xFF0000)
-ColorsEG = (0xFF0000, 0xFFFFFF, 0xFFFFFF)
+ColorsEG = (0xFF0000, 0xFFFFFF, 0x5E2612)
 ColorsIN = (0xFF9933, 0xFFFFFF, 0x00FF00)
 ColorsMX = (0x00FF00, 0xFFFFFF, 0xFF0000)
 ColorsNZ = (0x0000FF, 0xFF0000, 0xFFFF00)
@@ -59,7 +59,7 @@ try:
         elif GPIO.input(12): 
             AU = vlc.MediaPlayer("Australië.mp3")   
             AU.play()
-            for j in range(7):
+            for j in range(6):
                 for color in ColorsAU:
                     for i in range(16):
                         pixels[i] = color
